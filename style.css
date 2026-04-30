@@ -1,92 +1,151 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #020617, #050d1f);
+    background: #030712;
     color: white;
 }
 
+section {
+    padding: 90px 8%;
+}
 
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(3, 7, 18, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 170, 255, 0.25);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 8%;
 }
 
 .logo img {
-    width: 80px;
+    width: 90px;
+    filter: drop-shadow(0 0 12px #00aaff);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-weight: bold;
 }
 
+.nav-links a:hover {
+    color: #00aaff;
+}
 
 .hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 80px 20px;
+    background:
+        radial-gradient(circle at center, rgba(0,170,255,0.18), transparent 35%),
+        linear-gradient(180deg, #030712, #061126);
 }
 
 .hero-logo {
-    width: 120px;
-    margin-bottom: 15px;
+    width: 260px;
+    filter: drop-shadow(0 0 25px #00aaff);
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 40px;
+    font-size: 55px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 18px #00aaff;
 }
 
 .hero p {
-    margin: 10px 0 20px;
+    margin: 18px 0 30px;
+    color: #cbd8f0;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.btn {
-    padding: 10px 25px;
+.btn,
+.discord-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 10px;
     background: #00aaff;
-    color: white;
+    color: #031020;
+    font-weight: bold;
     text-decoration: none;
-    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,170,255,0.7);
+    transition: 0.3s;
 }
 
-
-.about {
-    text-align: center;
-    padding: 70px 20px;
+.btn:hover,
+.discord-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0,170,255,1);
 }
 
-
-
-.roster {
-    padding: 70px 20px;
+.about,
+.roster,
+.achievements,
+.community {
     text-align: center;
+    background: linear-gradient(180deg, #061126, #030712);
+}
+
+.about h2,
+.roster h2,
+.achievements h2,
+.community h2 {
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(0,170,255,0.5);
+}
+
+span,
+.sub-title {
+    color: #00aaff;
+}
+
+.about p,
+.community-text {
+    max-width: 900px;
+    margin: auto;
+    color: #cbd8f0;
+    line-height: 1.8;
+    font-size: 17px;
 }
 
 .players {
     display: block;
 }
 
-
 .sub-title {
-    color: #00aaff;
-    margin: 40px 0 20px;
+    margin: 45px 0 25px;
+    font-size: 22px;
     text-transform: uppercase;
-    font-size: 20px;
+    letter-spacing: 1px;
 }
-
 
 .main-roster,
 .extra-roster {
@@ -97,10 +156,8 @@ body {
 }
 
 .main-roster {
-    margin-bottom: 50px;
+    margin-bottom: 55px;
 }
-
-
 
 .card {
     width: 230px;
@@ -126,20 +183,25 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(10,20,40,0.95), rgba(5,9,20,0.98));
-    border-radius: 15px;
-    border: 1px solid rgba(0,170,255,0.6);
-    box-shadow: 0 0 20px rgba(0,170,255,0.3);
+    background:
+        linear-gradient(rgba(7, 15, 35, 0.92), rgba(3, 7, 18, 0.98));
+    border-radius: 18px;
+    border: 1px solid rgba(0,170,255,0.65);
+    box-shadow: 0 0 25px rgba(0,170,255,0.28);
     backface-visibility: hidden;
     padding: 20px;
     text-align: center;
+    overflow: hidden;
 }
 
+.card:hover .card-front {
+    box-shadow: 0 0 35px rgba(0,170,255,0.8);
+}
 
 .card-back {
     transform: rotateY(180deg);
+    overflow-y: auto;
 }
-
 
 .player-photo {
     width: 100%;
@@ -147,69 +209,96 @@ body {
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
-    box-shadow: 0 0 15px rgba(0,170,255,0.4);
+    border: 1px solid rgba(0,170,255,0.5);
+    box-shadow: 0 0 16px rgba(0,170,255,0.5);
 }
-
 
 .card-front h3,
 .card-back h3 {
+    font-size: 22px;
     margin-bottom: 10px;
     text-transform: uppercase;
+    text-shadow: 0 0 10px #00aaff;
 }
 
 .card-front p {
     color: #00aaff;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .card-back p {
     color: #cbd8f0;
-    margin-bottom: 10px;
-}
-
-.achievements {
-    padding: 70px 20px;
-    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 12px;
 }
 
 .achievements-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .achievement-card {
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #00aaff;
-    box-shadow: 0 0 15px rgba(0,170,255,0.4);
-    width: 220px;
+    width: 270px;
+    min-height: 170px;
+    padding: 30px 20px;
+    border-radius: 18px;
+    background: linear-gradient(rgba(7,15,35,0.95), rgba(3,7,18,0.98));
+    border: 1px solid rgba(0,170,255,0.65);
+    box-shadow: 0 0 25px rgba(0,170,255,0.28);
 }
 
+.achievement-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
 
-.community {
-    padding: 70px 20px;
-    text-align: center;
+.place {
+    color: #00aaff;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.year {
+    color: #cbd8f0;
 }
 
 .community-text {
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 .discord-btn {
-    display: inline-block;
-    padding: 12px 30px;
     background: #5865F2;
     color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+    box-shadow: 0 0 22px rgba(88,101,242,0.7);
 }
-
 
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 25px;
+    background: #020617;
+    color: #cbd8f0;
+    border-top: 1px solid rgba(0,170,255,0.25);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-logo {
+        width: 200px;
+    }
 }
