@@ -430,41 +430,7 @@ html {
     text-shadow: 0 0 10px #00aaff;
 }
 
-.former-roster {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 10px;
-}
-
-.former-card {
-    width: 230px;
-    padding: 25px;
-    border-radius: 15px;
-    background: linear-gradient(rgba(10,20,40,0.85), rgba(5,9,20,0.95));
-    border: 1px solid rgba(150,150,150,0.35);
-    box-shadow: 0 0 15px rgba(120,120,120,0.25);
-    text-align: center;
-    opacity: 0.8;
-    filter: grayscale(40%);
-}
-
-.former-card h3 {
-    color: white;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.former-card p {
-    color: #aaa;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.former-card span {
-    display: block;
-    margin-top: 10px;
-    color: #cbd8f0;
-    font-size: 14px;
+.inactive-card {
+    opacity: 0.75;
+    filter: grayscale(35%);
 }
